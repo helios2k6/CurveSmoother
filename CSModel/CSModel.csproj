@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\CommandArgs.cs" />
     <Compile Include="Model\Curve.cs" />
     <Compile Include="Model\CurveSegment.cs" />
     <Compile Include="Model\DataPoint.cs" />

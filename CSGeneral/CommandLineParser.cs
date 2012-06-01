@@ -5,30 +5,59 @@ using System.Text;
 
 namespace CSGeneral
 {
-	public class CommandLineParser
-	{
-		private readonly IDictionary<string, string> _parsingDictionary = new Dictionary<string, string>();
-		private readonly IDictionary<string, string> _invalidOptions = new Dictionary<string, string>();
+   public class CommandLineParser
+   {
+      private readonly IDictionary<string, IList<string>> _parsingDictionary = new Dictionary<string, IList<string>>();
+      private readonly ICollection<string> _invalidOptions = new HashSet<string>();
 
-		public CommandLineParser(IList<string> commandArgs, IList<string> commandLineOptions, IList<string> deliminators = null)
-		{
-			foreach (var s in commandArgs)
-			{
-				if (commandLineOptions.Contains(s))
-				{
+      public CommandLineParser(IList<string> commandArgs, IList<string> commandLineOptions)
+      {
+         //Current command we're currently trying to associate with the arguments
+         string currentCommand = default(string);
 
-				}
-			}
-		}
+         foreach (var s in commandArgs)
+         {
+            //We found a commandline option
+            if (commandLineOptions.Contains(s))
+            {
+               currentCommand = s;
+               if (!_parsingDictionary.ContainsKey(s))
+               {
+                  _parsingDictionary[s] = new List<string>();
+               }
+            }
+            else
+            {
+               if (string.IsNullOrEmpty(currentCommand))
+               {
+                  _invalidOptions.Add(s);
+                  continue;
+               }
+               
+               _parsingDictionary[currentCommand].Add(s);
+            }
+         }
+      }
 
-		public string this[string param]
-		{
-			get
-			{
-				string result;
+      public IList<string> this[string param]
+      {
+         get
+         {
+            IList<string> result;
+            _parsingDictionary.TryGetValue(param, out result);
 
-				return _parsingDictionary.TryGetValue(param, out result) ? result : string.Empty;
-			}
-		}
-	}
+            return result;
+         }
+      }
+
+      public ICollection<string> InvalidOptions
+      {
+         get { return new HashSet<string>(_invalidOptions); }
+      }
+
+      public bool HasInvalidOptions
+      {
+         get { return _invalidOptions.Any(); }
+      }
+   }
 }
