@@ -48,16 +48,27 @@
   <ItemGroup>
     <Compile Include="Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxies\FileInputProxy.cs" />
+    <Compile Include="Proxies\InputArgProxy.cs" />
+    <Compile Include="Proxies\ProxyNames.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSAlgorithms\CSAlgorithms.csproj">
       <Project>{B23423F3-99AE-45C1-8993-80B0091192F9}</Project>
       <Name>CSAlgorithms</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CSGeneral\CSGeneral.csproj">
+      <Project>{05034876-06db-46c0-b3e8-b816423413f5}</Project>
+      <Name>CSGeneral</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CSModel\CSModel.csproj">
       <Project>{E43F8CE2-EC3D-493D-AC59-15326350A2B4}</Project>
       <Name>CSModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="Mediators\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

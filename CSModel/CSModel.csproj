@@ -46,6 +46,7 @@
     <Compile Include="Model\DataPoint.cs" />
     <Compile Include="Interfaces\ISplineCreator.cs" />
     <Compile Include="Interfaces\ITransformation.cs" />
+    <Compile Include="Model\DataPointXCoordinateComparator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

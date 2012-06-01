@@ -9,30 +9,6 @@ namespace CSModel.Model
 	[Serializable]
 	public class DataPoint : IEquatable<DataPoint>
 	{
-		#region Constants
-		public static readonly double Precision = 0.0001;
-		#endregion
-
-		#region Static Comparators
-		public static int XCoordinateComparator(DataPoint right, DataPoint left)
-		{
-			var result = right.XCoordinate - left.XCoordinate;
-
-			if (Math.Abs(result) < Precision) return 0;
-			if (result < Precision) return -1;
-			return 1;
-		}
-
-		public static int YCoordinateComparator(DataPoint right, DataPoint left)
-		{
-			var result = right.YCoordinate - left.YCoordinate;
-
-			if (Math.Abs(result) < Precision) return 0;
-			if (result < Precision) return -1;
-			return 1;
-		}
-		#endregion
-
 		public DataPoint(double xCoordinate, double yCoordinate)
 		{
 			XCoordinate = xCoordinate;

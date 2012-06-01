@@ -42,12 +42,16 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Aggregation\SumOfAllDifferences.cs" />
+    <Compile Include="Search\FindLocalMaxima.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSModel\CSModel.csproj">
       <Project>{E43F8CE2-EC3D-493D-AC59-15326350A2B4}</Project>
       <Name>CSModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Transformations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
