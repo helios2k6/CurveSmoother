@@ -40,12 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\CommandArgs.cs" />
+    <Compile Include="Constants\Limits.cs" />
+    <Compile Include="Interfaces\ICurveSegmentGenerator.cs" />
+    <Compile Include="Interfaces\ICurveSegmentTransformation.cs" />
     <Compile Include="Model\Curve.cs" />
     <Compile Include="Model\CurveSegment.cs" />
     <Compile Include="Model\DataPoint.cs" />
-    <Compile Include="Interfaces\ISplineCreator.cs" />
-    <Compile Include="Interfaces\ITransformation.cs" />
+    <Compile Include="Interfaces\ICurveTransformation.cs" />
     <Compile Include="Model\DataPointXCoordinateComparator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

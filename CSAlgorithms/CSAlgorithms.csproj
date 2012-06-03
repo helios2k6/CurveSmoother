@@ -40,9 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CurveSeg\MinMaxSegGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Aggregation\SumOfAllDifferences.cs" />
-    <Compile Include="Search\FindLocalMaxima.cs" />
+    <Compile Include="SegmentTransformations\QuadraticSegmentTransformation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSModel\CSModel.csproj">
@@ -51,7 +52,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Transformations\" />
+    <Folder Include="CurveTrans\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
