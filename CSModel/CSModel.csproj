@@ -47,7 +47,6 @@
     <Compile Include="Model\CurveSegment.cs" />
     <Compile Include="Model\DataPoint.cs" />
     <Compile Include="Interfaces\ICurveTransformation.cs" />
-    <Compile Include="Model\DataPointXCoordinateComparator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

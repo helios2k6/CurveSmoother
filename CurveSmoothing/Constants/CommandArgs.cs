@@ -39,11 +39,13 @@ namespace CurveSmoothing.Constants
 		{
 			get
 			{
-				return new Dictionary<string, string> {{InputFileArg, InputFileArgHelp},
-                                                   {OutputFileArg, OutputFileArgHelp},
-                                                   {OutputFormatArg, OutputFormatArgHelp},
-                                                   {MinimumSafeDistanceArg, MinimumSafeDistanceArgHelp},
-                                                   {HelpArg, HelpArgHelp}};
+				return new Dictionary<string, string> {
+				{InputFileArg, InputFileArgHelp},
+				{OutputFileArg, OutputFileArgHelp},
+				{OutputFormatArg, OutputFormatArgHelp},
+				{MinimumSafeDistanceArg, MinimumSafeDistanceArgHelp},
+				{HelpArg, HelpArgHelp}
+				};
 			}
 		}
 		#endregion

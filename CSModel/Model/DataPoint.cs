@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CSModel.Constants;
 
 namespace CSModel.Model
 {
 	[Serializable]
-	public class DataPoint : IEquatable<DataPoint>
+	public class DataPoint : IEquatable<DataPoint>, IComparable<DataPoint>
 	{
 		public DataPoint(double xCoordinate, double yCoordinate)
 		{
@@ -51,5 +52,14 @@ namespace CSModel.Model
 			return _hashCode;
 		}
 		#endregion
+
+		public int CompareTo(DataPoint other)
+		{
+			var result = XCoordinate - other.XCoordinate;
+
+			if (Math.Abs(result) < Limits.MaxPrecision) return 0;
+			if (result < Limits.MaxPrecision) return -1;
+			return 1;
+		}
 	}
 }

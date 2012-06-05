@@ -16,6 +16,8 @@ namespace CSModel.Model
 
 		private readonly DataPoint _minima;
 
+		private readonly ManualResetEvent _sortedDataPoints = new ManualResetEvent(false);
+
 		private readonly ManualResetEvent _foundMaxAndMin = new ManualResetEvent(false);
 
 		public CurveSegment()
@@ -23,16 +25,24 @@ namespace CSModel.Model
 			_dataPoints = new List<DataPoint>();
 		}
 
-		public CurveSegment(IList<DataPoint> dataPoints)
+		public CurveSegment(IEnumerable<DataPoint> dataPoints)
 		{
 			_dataPoints = new List<DataPoint>(dataPoints);
+
+			var copyOfDataPoints = new List<DataPoint>(dataPoints);
+
+			Task.Factory.StartNew(() =>
+			{
+				_dataPoints.Sort();
+				_sortedDataPoints.Set();
+			});
 
 			Task.Factory.StartNew(() =>
 			{
 				DataPoint currentMax;
 				DataPoint currentMin;
 
-				currentMax = currentMin = _dataPoints.First();
+				currentMax = currentMin = copyOfDataPoints.First();
 
 				foreach (var i in _dataPoints)
 				{
@@ -49,12 +59,15 @@ namespace CSModel.Model
 
 				_foundMaxAndMin.Set();
 			});
-
 		}
 
-		public IList<DataPoint> DataPoints
+		public IEnumerable<DataPoint> DataPoints
 		{
-			get { return _dataPoints.AsReadOnly(); }
+			get
+			{
+				_sortedDataPoints.WaitOne();
+				return _dataPoints.AsReadOnly();
+			}
 		}
 
 		public DataPoint Maxima

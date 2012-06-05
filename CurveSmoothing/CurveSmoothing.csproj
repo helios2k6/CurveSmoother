@@ -47,9 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\CommandArgs.cs" />
+    <Compile Include="CustomAlgo\LinearYTranslation.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proxies\FileInputProxy.cs" />
     <Compile Include="Proxies\InputArgProxy.cs" />
     <Compile Include="Proxies\ProxyNames.cs" />
   </ItemGroup>

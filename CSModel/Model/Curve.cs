@@ -16,12 +16,18 @@ namespace CSModel.Model
 			_segments = new List<CurveSegment>();
 		}
 
-		public Curve(IList<CurveSegment> segments)
+		public Curve(IEnumerable<CurveSegment> segments)
 		{
 			_segments = new List<CurveSegment>(segments);
 		}
 
-		public IList<CurveSegment> Segments
+		public Curve(CurveSegment segment)
+		{
+			_segments = new List<CurveSegment>();
+			_segments.Add(segment);
+		}
+
+		public IEnumerable<CurveSegment> Segments
 		{
 			get { return _segments.AsReadOnly(); }
 		}
