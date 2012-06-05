@@ -59,6 +59,7 @@ namespace CSModel.Model
 
 				_foundMaxAndMin.Set();
 			});
+
 		}
 
 		public IEnumerable<DataPoint> DataPoints
