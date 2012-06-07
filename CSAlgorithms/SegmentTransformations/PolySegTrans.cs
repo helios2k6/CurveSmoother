@@ -10,7 +10,7 @@ namespace CSAlgorithms.SegTrans
 {
 	public class PolynomialSegmentTransformation : ICurveSegmentTransformation
 	{
-		private static List<List<T>> CalculateAllCombinations<T>(IList<T> indexes, uint choose, List<List<T>> accum)
+		private static IList<IList<T>> CalculateAllCombinations<T>(IList<T> indexes, uint choose, IList<IList<T>> accum)
 		{
 			//Sanity check
 			if (indexes.Count < choose) throw new ArgumentException("Number of items is less than the number chosen");
@@ -31,7 +31,7 @@ namespace CSAlgorithms.SegTrans
 						rr.Add(currentlyChosenElement);
 					}
 
-					accum.AddRange(recursiveResult);
+					accum = accum.Union(recursiveResult).ToList();
 				}
 			}
 			return accum;
