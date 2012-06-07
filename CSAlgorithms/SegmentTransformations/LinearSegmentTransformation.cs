@@ -7,27 +7,27 @@ using CSModel.Model;
 
 namespace CSAlgorithms.SegmentTransformations
 {
-   public class LinearSegmentTransformation : ICurveSegmentTransformation
-   {
-      private readonly double _xTransformation;
-      private readonly double _yTransformation;
+	public class LinearSegmentTransformation : ICurveSegmentTransformation
+	{
+		private readonly double _xTransformation;
+		private readonly double _yTransformation;
 
-      public LinearSegmentTransformation(double xTransformation, double yTransformation)
-      {
-         _xTransformation = xTransformation;
-         _yTransformation = yTransformation;
-      }
+		public LinearSegmentTransformation(double xTransformation, double yTransformation)
+		{
+			_xTransformation = xTransformation;
+			_yTransformation = yTransformation;
+		}
 
-      #region ICurveSegmentTransformation Members
+		#region ICurveSegmentTransformation Members
 
-      public CurveSegment Transform(CurveSegment curveSegment)
-      {
-         var translatedSegments = from s in curveSegment.DataPoints.AsParallel()
-                                  select new DataPoint(s.XCoordinate + _xTransformation, s.YCoordinate + _yTransformation);
+		public CurveSegment Transform(CurveSegment curveSegment)
+		{
+			var translatedSegments = from s in curveSegment.DataPoints.AsParallel()
+									 select new DataPoint(s.XCoordinate + _xTransformation, s.YCoordinate + _yTransformation);
 
-         return new CurveSegment(translatedSegments);
-      }
+			return new CurveSegment(translatedSegments);
+		}
 
-      #endregion
-   }
+		#endregion
+	}
 }
