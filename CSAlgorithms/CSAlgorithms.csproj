@@ -43,8 +43,9 @@
     <Compile Include="CurveSeg\MinMaxSegGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Aggregation\SumOfAllDifferences.cs" />
-    <Compile Include="SegmentTransformations\LinearSegmentTransformation.cs" />
-    <Compile Include="SegmentTransformations\PolySegTrans.cs" />
+    <Compile Include="SegmentTransformations\InverseSegmentTrans.cs" />
+    <Compile Include="SegmentTransformations\LinearSegmentTrans.cs" />
+    <Compile Include="SegmentTransformations\PolynomialSegmentTrans.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSModel\CSModel.csproj">
