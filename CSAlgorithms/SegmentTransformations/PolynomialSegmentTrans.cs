@@ -8,7 +8,7 @@ using CSModel.Constants;
 using CSModel.Interfaces;
 using CSModel.Model;
 
-namespace CSAlgorithms.SegTrans
+namespace CSAlgorithms.SegmentTransformation
 {
 	public class PolynomialSegmentTransformation : ICurveSegmentTransformation
 	{
