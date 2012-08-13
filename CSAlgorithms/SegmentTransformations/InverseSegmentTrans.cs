@@ -36,7 +36,7 @@ namespace CSAlgorithms.SegmentTransformations
 
 		private CurveSegment SolveInverseCurve(IList<DataPoint> dataPoints)
 		{
-
+			throw new NotImplementedException();
 		}
 	}
 }

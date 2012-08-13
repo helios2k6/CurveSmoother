@@ -35,7 +35,7 @@ namespace CurveSmoothing.Constants
 			get { return new List<string> { InputFileArg, OutputFileArg, OutputFormatArg, MinimumSafeDistanceArg, HelpArg }; }
 		}
 
-		public static IEnumerable<KeyValuePair<string, string>> HelpMap
+		public static IDictionary<string, string> HelpMap
 		{
 			get
 			{
